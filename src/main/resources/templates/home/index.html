@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/style/styles.css}" href="../../static/style/styles.css">
+    <title>Conversion</title>
+</head>
+<body>
+
+    <nav>
+        <div class="top-nav">
+            <h3 class="navbar--logo">CONV</h3>
+            <ul class="navbar--menu">
+                <li class="navbar--item">Price</li>
+                <li class="navbar--item">About</li>
+                <li class="navbar--item">Contact</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main--section">
+        <form action="/" method="post">
+            <label for="input">Enter temperature:</label>
+            <input type="text" id="input" name="value">
+            <br>
+            <div th:if="${convertedValue != null}">
+                <p>Converted to
+                    <span th:text="${isCelsius ? convertedValue + ' Fahrenheit' : convertedValue + ' Celsius'}"></span></p>
+            </div>
+            <button class="ui-button" id="c2f" type="submit" name="isCelsius" value="true">C2F</button>
+            <button class="ui-button" id="f2c" type="submit" name="isCelsius" value="false">F2C</button>
+        </form>
+    </div>
+
+</body>
+</html>
